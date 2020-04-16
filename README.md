@@ -16,7 +16,7 @@ Your solution should offer the rest of the team a way to submit a time and recei
 
 ## How to proceed
 
-Fork this repo, then start working in a feature branch. Remember that this is a DevOps team, so make sure your repo reflects that. Spend however much time you feel is reasonable. It doesn’t matter if the project is ‘done’, nothing ever is. When you’re ready push your changes back to Github and put in a pull request.
+Fork this repo, then start working in a feature branch, based on develop. Remember that this is a DevOps team, so make sure your repo reflects that. Spend however much time you feel is reasonable. It doesn’t matter if the project is ‘done’, nothing ever is. When you’re ready push your changes back to Github and put in a pull request.
 
 Be sure to add in instructions for how to deploy your solution, and document things in a way that the rest of the team can pick this up and run with it. Remember you have all the tools in the GCP arsenal at your disposal.
 
