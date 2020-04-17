@@ -1,6 +1,8 @@
 # Clock Exercise
 
-This exercise is not meant to take an excessive amount of time. It is an opportunity for you to demonstrate your skills without the stress of an interview. If you start to run out of time, it’s ok to leave an imaginary team member a TODO list that details all the things you didn’t quite have time to do in order for your solution to go to prod. 
+This exercise is not meant to take an excessive amount of time. It is an opportunity for you to demonstrate your skills without the stress of an interview. If you start to run out of time, it’s ok to leave an imaginary team member a TODO list that details all the things you didn’t quite have time to do in order for your solution to go to prod.
+
+If you need clarification, or would like to request additional information, pease reach out to the interviewer by email.
 
 ## Scenario
 
