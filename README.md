@@ -1,5 +1,9 @@
 # Clock Exercise
 
+We are interested in running code of course, but even more in your development process and understanding of Software Development Lifecycle Management.
+
+**Fork this repo, then get to work.** Remember that this is a DevOps team, so make sure your repo reflects that. Spend however much time you feel is reasonable. It doesn’t matter if the project is ‘done’, nothing ever is. **When you’re ready push your changes back to Github and put in a pull request back to the base repo.**
+
 This exercise is not meant to take an excessive amount of time. It is an opportunity for you to demonstrate your skills without the stress of an interview. If you start to run out of time, it’s ok to leave an imaginary team member a TODO list that details all the things you didn’t quite have time to do in order for your solution to go to prod.
 
 If you need clarification, or would like to request additional information, pease reach out to the interviewer by email.
@@ -18,7 +22,7 @@ Your solution should offer the rest of the team a way to submit a time and recei
 
 ## How to proceed
 
-Fork this repo, then get to work. Remember that this is a DevOps team, so make sure your repo reflects that. Spend however much time you feel is reasonable. It doesn’t matter if the project is ‘done’, nothing ever is. When you’re ready push your changes back to Github and put in a pull request back to the base repo.
+**Fork this repo, then get to work.** Remember that this is a DevOps team, so make sure your repo reflects that. Spend however much time you feel is reasonable. It doesn’t matter if the project is ‘done’, nothing ever is. **When you’re ready push your changes back to Github and put in a pull request back to the base repo.**
 
 Be sure to add in instructions for how to deploy your solution, and document things in a way that the rest of the team can pick this up and run with it. Remember you have all the tools in the GCP arsenal at your disposal.
 
