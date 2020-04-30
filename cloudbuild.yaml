@@ -1,0 +1,25 @@
+steps:
+    -
+        name: gcr.io/cloud-builders/docker
+        args:
+            - build
+            - '-t'
+            - 'gcr.io/ind-coe/ar-clock:$COMMIT_SHA'
+            - .
+    -
+        name: gcr.io/cloud-builders/docker
+        args:
+            - push
+            - 'gcr.io/ind-coe/ar-clock:$COMMIT_SHA'
+    -
+        name: gcr.io/cloud-builders/gcloud
+        args:
+            - functions
+            - deploy
+            - clock_angle
+            - '--runtime'
+            - python37
+            - '--trigger-http'
+            - '--allow-unauthenticated'
+            - '--source=https://source.developers.google.com/projects/ind-coe/repos/ar_cloud_clock/moveable-aliases/master/paths/'
+        dir: 'functions/autodeploy'
