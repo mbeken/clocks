@@ -18,3 +18,5 @@ steps:
    - '--platform'
    - 'managed'
    - '--allow-unauthenticated'
+   - '--source=https://source.cloud.google.com/ind-coe/github_dt1947in_clocks/+/master:'
+   dir: 'functions/autodeploy'
