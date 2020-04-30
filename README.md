@@ -15,3 +15,7 @@ Accessing Function:
 Output:
     return string
 e.g. 'Angle -> 90.0'
+
+Deploying Method:
+    The code automatically push changes to Google cloud function. 
+    Google cloud "Source repositroy" has Trigger build on "Google Build" which deploys code to Cloud function "clock_angle".
