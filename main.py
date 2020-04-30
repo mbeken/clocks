@@ -33,7 +33,7 @@ def clock_angle(request):
             hrs = 0
 
         angle_between = abs(hrs*degree_per_hour - mins*degree_per_min + mins*degree_intern)
-        ans_str = "Angle ->".format(hrs, mins, str(angle_between))
+        ans_str = "Angle ->{0}".format(str(angle_between))
 
     else:
         ans_str = "Invalid Input, cannot compute, Try Again"
