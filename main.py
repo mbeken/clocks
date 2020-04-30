@@ -33,8 +33,7 @@ def clock_angle(request):
             hrs = 0
 
         angle_between = abs(hrs*degree_per_hour - mins*degree_per_min + mins*degree_intern)
-        ans_str = "Angle between clock hands {0} hrs and {1} mins is {2}-> ". \
-            format(hrs, mins, str(angle_between))
+        ans_str = "Angle ->".format(hrs, mins, str(angle_between))
 
     else:
         ans_str = "Invalid Input, cannot compute, Try Again"
