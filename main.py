@@ -32,7 +32,7 @@ def cal_clock_angle():
     else:
         return jsonify(result="Error in input hours or minutes.")
 
-    return jsonify(result=" {}:{} makes the following angle {}°".format(hrs, mins, angle))
+    return jsonify(result=" {}:{} This makes the following angle {}°".format(hrs, mins, angle))
 
 
 if __name__ == "__main__":
