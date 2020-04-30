@@ -1,14 +1,15 @@
 """
     _author_ = Arpit Rawal
-    Funciton gets deploy on google cloud functions
 """
 def clock_angle(request):
-    """Responds to any HTTP request.
+    """
+        1.  Function calculates angle clock hands
+        of hours and mins
+        2. Responds to any HTTP request.
     Args:
         request (flask.Request): HTTP request object.
     Returns:
-        The response text or any set of values that can be turned into a
-        Response object using
+        The response text will be string in form Angle ->90
     """
     request_json = request.get_json()
     request_args = request.args
