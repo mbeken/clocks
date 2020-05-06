@@ -1,3 +1,4 @@
+from flask import escape
 def calcAngle(request):
     request_json = request.get_json(silent=True)
     request_args = request.args
@@ -26,6 +27,6 @@ def calcAngle(request):
 
     # Return the smaller angle of two
     # possible angles
-    angle = min(360 - angle, angle)
+    angle = str(int(min(360 - angle, angle)))
 
-    return str(int(angle))
+    return 'Angle is {}'.format(escape(angle))
