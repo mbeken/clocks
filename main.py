@@ -37,7 +37,7 @@ def calculate():
 
             return render_template("pass.html", h=hours, m=minutes, a=angle)
         else:
-            w = "Oops.. Wrong Input !"
+            w = "Oops. Wrong Input !"
             return render_template("pass.html", h=hours, m=minutes, w=w)
 
     except:
