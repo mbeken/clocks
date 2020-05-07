@@ -1,14 +1,13 @@
-from flask import escape
-def calcAngle(request):
-    request_json = request.get_json(silent=True)
-    request_args = request.args
+from flask import Flask
 
-    if request_json and ('hour' in request_json and 'minute' in request_json):
-        hour = request_json['hour']
-        minute = request_json['minute']
-    else:
-        hour = 12
-        minute = 0
+
+# If `entrypoint` is not defined in app.yaml, App Engine will look for an app
+# called `app` in `main.py`.
+app = Flask(__name__)
+
+
+@app.route('/')
+def calcAngle(hour,minute):
     if (hour < 0 or minute < 0 or hour > 12 or minute > 60):
         print('Wrong input')
     if (hour == 12):
@@ -29,4 +28,9 @@ def calcAngle(request):
     # possible angles
     angle = str(int(min(360 - angle, angle)))
 
-    return 'Angle is {}'.format(escape(angle))
+    return angle
+if __name__ == '__main__':
+    # This is used when running locally only. When deploying to Google App
+    # Engine, a webserver process such as Gunicorn will serve the app. This
+    # can be configured by adding an `entrypoint` to app.yaml.
+    app.run(host='127.0.0.1', port=8080, debug=True)
