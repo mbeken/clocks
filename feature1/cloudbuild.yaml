@@ -1,0 +1,18 @@
+steps:
+- name: 'python:3.7-slim'
+  id: Test
+  entrypoint: /bin/sh
+  args:
+  - -c
+  - 'pip install google-cloud-datastore && python3 test.py'
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: Deploy
+  args:
+  - functions
+  - deploy
+  - cf_get_angle
+  - --source=.
+  - --trigger-topic=topic_time_value
+  - --runtime=python37
+  - --entry-point=cf_get_angle
+
