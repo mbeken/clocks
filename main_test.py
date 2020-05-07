@@ -4,17 +4,9 @@ import main
 
 
 def test_clock_angle():
-    name = 'test'
-    data = {'hour': 4,'minute':45}
-    req = Mock(get_json=Mock(return_value=data), args=data)
-
-    # Call tested function
-    assert main.calcAngle(req) == 'Angle is {}!'.format(angle)
-
-
-def test_print_hello_world():
-    data = {}
-    req = Mock(get_json=Mock(return_value=data), args=data)
-
-    # Call tested function
-    assert main.calcAngle(req) == 'Angle is {}'.format(angle)
+    main.app.testing = True
+    client = main.app.test.test_client(3,0)
+    
+    r = client.get('/')
+    assert r.status_code == 200
+    assert '90' in r.data.decode('utf-8')
