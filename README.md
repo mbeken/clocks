@@ -25,9 +25,9 @@ This application runs on python server as webservice.
 AngleService.py – this file needs to be run. It will host application as webservice on localhost. Use this url to request angle value - http://localhost:5000/?hr=3&mi=15
 
 # Code files
-Angle.py – This file contains python code which contains mathematical logic for calculating time value to angle value in degrees.
+[Angle.py](Angle.py) – This file contains python code which contains mathematical logic for calculating time value to angle value in degrees.
 
-AngleService.py – This file contains python code which deploys Angle.py code to as webservice using flask api.
+[AngleService.py](AngleService.py) – This file contains python code which deploys Angle.py code to as webservice using flask api.
 
 # Output
 **Request url with parameters**
