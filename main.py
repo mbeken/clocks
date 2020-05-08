@@ -41,7 +41,7 @@ def calculate():
             return render_template("pass.html", h=hours, m=minutes, w=w)
 
     except:
-        w = "Invalid input. You submitted blank values !"
+        w = "Sorry.. You submitted blank values !"
         return render_template("pass.html", w=w)
 
 
