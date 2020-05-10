@@ -22,6 +22,7 @@ We need to calculate the angle between the hands on a clock face. For example in
 ### Acceptance Criteria:-
 
 1) Code to perform the calculation
+
     #### URL : http://127.0.0.1:5000//clock_angle/3:15
     #### Output : {
                 "context": "Angle for time 3:15 is 7.5 degree."
@@ -59,7 +60,8 @@ Note :It will ask region enter the numric value.
 
 ## Infrastructure needed
 ----------------------
- We will require GC resources based on the requirements
+ - Implemented this service by using flask framework so we will be required to install flask.
+ -We will require GC resources based on the requirements
  i. e.
     - To run no of instances we will require no of CPU i. e. for now instances 1 , 1 cpu will be required.
     - Memory will be required based on resource i.e memory_gb: 0.5
