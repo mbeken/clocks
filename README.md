@@ -22,7 +22,7 @@ We need to calculate the angle between the hands on a clock face. For example in
 ### Acceptance Criteria:-
 
 1) Code to perform the calculation
-
+	
     #### URL : http://127.0.0.1:5000//clock_angle/3:15
     #### Output : {
                 "context": "Angle for time 3:15 is 7.5 degree."
@@ -32,6 +32,9 @@ We need to calculate the angle between the hands on a clock face. For example in
 ---------------------------------
 - Now Deploy the application on GCP
 ---------------------------------
+File description 
+	------------------------
+	app.yaml  is used to deploy application on GCP
 
 - On google cloud
 ----------------
@@ -60,6 +63,11 @@ Note :It will ask region enter the numric value.
 
 - Infrastructure needed
 ----------------------
+   - Technology Stack
+
+    1. Python 3.7
+    2. Flask==1.1.2
+    3. GCP
  - Implemented this service by using flask framework so we will be required to install flask.
  -We will require GC resources based on the requirements
  i. e.
