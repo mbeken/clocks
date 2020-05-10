@@ -30,27 +30,27 @@ We need to calculate the angle between the hands on a clock face. For example in
 
 1) How will you deploy this solution (in code or as a todo list if time is limited). i.e. how and where will this run?
 ---------------------------------
-## Now Deploy the application on GCP
+- Now Deploy the application on GCP
 ---------------------------------
 
--On google cloud
+- On google cloud
 ----------------
 	--create project
 
--go to GC console generate ssh key
+- go to GC console generate ssh key
 ----------------------------------
 	---command to generate ssh key: ssh-keygen -t rsa -b 4096 -C "abhilash"
 	---cat .ssh/id_rsa.pub
 
--Add pub key to git hub account
+- Add pub key to git hub account
 -------------------------------
 
--GC console: go into your project clone the repo
+- GC console: go into your project clone the repo
 ------------------------------------------------
 --run : git clone https://github.com/githubabhilash/clocks.git
 
 
--GC console:Now go to project folder
+- GC console:Now go to project folder
 ------------------------------------
 ---run : gcloud app deploy
 Note :It will ask region enter the numric value.
@@ -58,7 +58,7 @@ Note :It will ask region enter the numric value.
 
 2) How will you manage any infrastructure needed?
 
-## Infrastructure needed
+- Infrastructure needed
 ----------------------
  - Implemented this service by using flask framework so we will be required to install flask.
  -We will require GC resources based on the requirements
@@ -69,7 +69,7 @@ Note :It will ask region enter the numric value.
 
 
 3) Delivered as a feature branch in the repo fork
-   ##  -- featureabhilash branch is created
+   -- featureabhilash branch is created
 
 1) Bonus points for a working deployed solution in GCP that you can demo at the "sprint review" (ie interview)
     -- Deployed this service to on GCP and its running.
