@@ -5,7 +5,7 @@ import main
 
 def test_clock_angle():
     name = 'test'
-    data = {'hour': 4,'minute':45}
+    data = {'hour': 9,'minute':45}
     req = Mock(get_json=Mock(return_value=data), args=data)
 
     # Call tested function
