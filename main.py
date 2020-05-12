@@ -6,8 +6,10 @@ from flask import Flask
 app = Flask(__name__)
 
 
-@app.route('/')
-def calcAngle(hour,minute):
+@app.route('/calcAngle',methods=['get'])
+def calcAngle():
+    hour = int(request.args.get('hour',0))
+    minute = int(request.args.get('minute',0))
     if (hour < 0 or minute < 0 or hour > 12 or minute > 60):
         print('Wrong input')
     if (hour == 12):
