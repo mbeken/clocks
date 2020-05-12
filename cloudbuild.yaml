@@ -4,6 +4,8 @@ steps:
   - functions
   - deploy
   - calcAngle
-  - --source='https://github.com/JafarShaik6/clocks'
-  - --trigger-http
-  - --allow-unauthenticated
+  - '--source=https://github.com/JafarShaik6/clocks'
+  - '--runtime'
+  - python37
+  - '--trigger-http'
+  - '--allow-unauthenticated'
