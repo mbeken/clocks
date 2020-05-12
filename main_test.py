@@ -9,7 +9,7 @@ def test_clock_angle():
     req = Mock(get_json=Mock(return_value=data), args=data)
 
     # Call tested function
-    assert main.calcAngle(req) == 'Angle is {}!'.format(angle)
+    assert main.calc(req) == 'Angle is {}!'.format(angle)
 
 
 def test_print_hello_world():
@@ -17,4 +17,4 @@ def test_print_hello_world():
     req = Mock(get_json=Mock(return_value=data), args=data)
 
     # Call tested function
-    assert main.calcAngle(req) == 'Angle is {}'.format(angle)
+    assert main.calc(req) == 'Angle is {}'.format(angle)
