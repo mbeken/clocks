@@ -3,7 +3,7 @@ steps:
   args:
   - functions
   - deploy
-  - calcAngle
+  - calc
   - '--source=https://github.com/JafarShaik6/clocks'
   - '--runtime'
   - python37
