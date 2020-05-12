@@ -1,5 +1,5 @@
 from flask import escape
-def calcAngle(request):
+def calc(request):
     request_json = request.get_json(silent=True)
     request_args = request.args
 
