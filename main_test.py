@@ -5,7 +5,7 @@ import main
 
 def test_clock_angle():
     main.app.testing = True
-    client = main.app.test.test_client(3,0)
+    client = main.app.test.test_client()
     
     r = client.get('/clacAngle?hour=3&minute=0')
     assert r.status_code == 200
