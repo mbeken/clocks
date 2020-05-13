@@ -1,5 +1,5 @@
 from flask import Flask, redirect, request
-from lib.helpers import Helpers
+from lib.helpers import Helpers, DatastoreClient
 
 
 app = Flask(__name__)
@@ -28,8 +28,10 @@ def calculate_angles():
         minute_angle = 6 * minute
 
         angle = abs(hour_angle - minute_angle)
+        angle = min(360 - angle, angle)
+        DatastoreClient(kind='clock_angle_logs').log_to_datastore(time, angle)
 
-        return Helpers.success(min(360 - angle, angle))
+        return Helpers.success(angle)
     else:
         return Helpers.bad_request(r"query parameter time should follow regex ^\d{1,2}:\d{1,2}$ and value should be "
                                    r"between 00:00 and 23:59")

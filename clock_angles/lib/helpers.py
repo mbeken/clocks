@@ -2,6 +2,9 @@ import json
 import re
 
 from flask import Response
+import uuid
+
+from google.cloud import datastore
 
 
 class Helpers:
@@ -51,3 +54,20 @@ class Helpers:
             return hour, minute
         else:
             return False
+
+
+class DatastoreClient:
+    def __init__(self, kind):
+        self.client = datastore.Client(project='ci-cd-clock-angles', namespace='default')
+        self.kind = kind
+
+    def log_to_datastore(self, request_time, response_angle):
+        name = str(uuid.uuid4())
+        log_key = self.client.key(self.kind, name)
+
+        log_entry = datastore.Entity(key=log_key)
+        log_entry['time'] = request_time
+        log_entry['response'] = response_angle
+
+        # Saves the entity
+        self.client.put(log_entry)
