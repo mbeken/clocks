@@ -3,7 +3,7 @@ steps:
   args:
   - functions
   - deploy
-  - calc
+  - calcAng
   - --source=https://source.developers.google.com/projects/data-engineer-practice-263910/repos/github_jafarshaik6_clocks
   - --runtime
   - python37
