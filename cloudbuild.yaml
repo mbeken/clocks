@@ -4,7 +4,7 @@ steps:
   entrypoint: /bin/sh
   args:
   - -c
-  - 'pip3 install -r clock_angles/requirements.txt && export PYTHONPATH=`pwd` && pytest -v clock_angles/test/test.py'
+  - 'pip3 install -r clock_angles/requirements.txt && export PYTHONPATH=`pwd`:`pwd`/clock_angles && pytest -v clock_angles/test/test.py'
 - name: "gcr.io/cloud-builders/gcloud"
   args: ["config", "list"]
 - name: "gcr.io/cloud-builders/gcloud"
