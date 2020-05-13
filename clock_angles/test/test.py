@@ -28,9 +28,3 @@ def test_negative():
 
     assert assert_json == response_json
 
-
-if __name__ == "__main__":
-    import sys
-    import os
-
-    sys.path.append(os.path.dirname(os.getcwd()))
