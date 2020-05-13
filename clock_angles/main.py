@@ -33,6 +33,7 @@ def calculate_angles():
 
         return Helpers.success(angle)
     else:
+        DatastoreClient(kind='clock_angle_logs').log_to_datastore(time, 'bad_request')
         return Helpers.bad_request(r"query parameter time should follow regex ^\d{1,2}:\d{1,2}$ and value should be "
                                    r"between 00:00 and 23:59")
 
