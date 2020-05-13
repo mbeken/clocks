@@ -4,7 +4,7 @@ steps:
   entrypoint: /bin/sh
   args:
   - -c
-  - 'export PYTHON_PATH=`/` pip install -t /workspace/lib -r clock_angeles/requirements.txt && pytest clock_angles/test/test.py'
+  - 'export PYTHON_PATH=`/` && pip install -t /workspace/lib -r clock_angeles/requirements.txt && pytest clock_angles/test/test.py'
 - name: "gcr.io/cloud-builders/gcloud"
   args: ["config", "list"]
 - name: "gcr.io/cloud-builders/gcloud"
