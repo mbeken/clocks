@@ -1,0 +1,12 @@
+steps:
+- name: 'docker.io/library/python:3.7'
+  id: Test
+  entrypoint: /bin/sh
+  args:
+  - -c
+  - 'export PYTHON_PATH=`/` pip install -t /workspace/lib -r clock_angeles/requirements.txt && pytest clock_angles/test/test.py'
+- name: "gcr.io/cloud-builders/gcloud"
+  args: ["config", "list"]
+- name: "gcr.io/cloud-builders/gcloud"
+  args: ["app", "deploy", "clock_angles/app.yaml"]
+timeout: "1600s"

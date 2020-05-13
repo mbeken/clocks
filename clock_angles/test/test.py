@@ -2,7 +2,7 @@ from clock_angles import main
 import json
 
 
-def test_index():
+def test_positive():
     main.app.testing = True
     client = main.app.test_client()
 
@@ -11,6 +11,10 @@ def test_index():
     response_json = json.loads(r.data.decode('utf-8'))
     assert {'response': 30.0} == response_json
 
+
+def test_negative():
+    main.app.testing = True
+    client = main.app.test_client()
     r = client.post("/clock_angles", json={'hour_hand': '1', 'minute_hand': 0})
     assert r.status_code == 400
     response_json = json.loads(r.data.decode('utf-8'))
@@ -23,3 +27,10 @@ def test_index():
     }
 
     assert assert_json == response_json
+
+
+if __name__ == "__main__":
+    import sys
+    import os
+
+    sys.path.append(os.path.dirname(os.getcwd()))
