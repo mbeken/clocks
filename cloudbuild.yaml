@@ -4,7 +4,7 @@ steps:
   entrypoint: /bin/sh
   args:
   - -c
-  - 'echo `pwd` && ls -l && pip install -t /workspace/lib -r clock_angeles/requirements.txt && pytest clock_angles/test/test.py'
+  - 'pip3 install -r clock_angles/requirements.txt'
 - name: "gcr.io/cloud-builders/gcloud"
   args: ["config", "list"]
 - name: "gcr.io/cloud-builders/gcloud"
