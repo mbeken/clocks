@@ -50,9 +50,20 @@ We need to calculate the angle between the hands on a clock face. For example in
 
 ### Acceptance Criteria:-
 
-1) Code to perform the calculation
-1) How will you deploy this solution (in code or as a todo list if time is limited). i.e. how and where will this run?
-1) How will you manage any infrastructure needed?
-1) Delivered as a feature branch in the repo fork
-1) Bonus points for a working deployed solution in GCP that you can demo at the "sprint review" (ie interview)
-1) Any DevOps/Cicd components that would support this feature in a production setting
+1) Code to perform the calculation<br>
+  Code can found in the repo along with required tests and environment setup.
+1) How will you deploy this solution (in code or as a todo list if time is limited). i.e. how and where will this run?<br>
+  To deploy this solution I have used GCP Cloud Functions. As our data is coming from sensors at low frequency and as the compute needed is pretty low, as far as I think there is no need of dedicated instance.
+  The deployed solution can be tested by hitting this url,<br>
+  https://us-central1-get-ride-1568029178700.cloudfunctions.net/cal_angle?time=23:00<br>
+  with appropiate time param<br>
+  Currently I have used the core computation code in a script and deployed the same, but for the purpose of maintenance, my repo can made into a GCP cloud repo which can be used as a backend to the service. 
+    
+1) How will you manage any infrastructure needed?<br>
+As the solution is deployed as GCP Cloud Function, scalibility is taken care by GCP. Also the cost is pretty low, as first 2 million requests are free of cost.
+1) Delivered as a feature branch in the repo fork<br>
+ Already have raised a PR against the upstream branch
+1) Bonus points for a working deployed solution in GCP that you can demo at the "sprint review" (ie interview)<br>
+ Solution is ready and can be tested by browser
+1) Any DevOps/Cicd components that would support this feature in a production setting<br>
+At the current scale, no other DeveOps/Cicd components are required
