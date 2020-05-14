@@ -17,6 +17,8 @@ def calculate_angles():
 
     Request to be sent should be GET and should have a query string with key time containing
     the HH:MM information
+
+    Build demo
     """
     time = request.args.get('time')
 
