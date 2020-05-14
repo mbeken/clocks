@@ -15,8 +15,8 @@ def calculate_angles():
     """
     returns the angle between the hour hand and the minute hand
 
-    Request to be sent should be POST and should have a json payload containing
-    ifo on location of hour hand and minute hand
+    Request to be sent should be GET and should have a query string with key time containing
+    the HH:MM information
     """
     time = request.args.get('time')
 
