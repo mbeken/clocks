@@ -1,0 +1,10 @@
+steps:
+- name: "python"  
+  id: Test
+  entrypoint: /bin/sh
+  args:
+  - -c
+  - 'pip install flask && pip install pytest && python -m pytest'
+- name: "gcr.io/cloud-builders/gcloud"
+  args: ["app", "deploy"]
+timeout: "1600s"

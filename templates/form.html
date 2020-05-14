@@ -1,0 +1,37 @@
+<html>
+
+   <script>
+      function validateForm() {
+        var h = document.forms["angle"]["hour"].value;
+        var m = document.forms["angle"]["minute"].value;
+        if (h == "" ) {
+          alert("Hour must be filled out");
+          return false;
+        }
+        if (m == "") {
+          alert("Minute must be filled out");
+          return false;
+        }
+
+        if (h < 0 || h > 12 ) {
+          alert("Invlaid Input in Hour");
+          return false;
+        }
+
+        if (m < 0 || m > 60 ) {
+          alert("Invlaid Input in Minute");
+          return false;
+        }
+      }
+      </script>
+
+
+   <body>
+      <h1> Demo - Angle between the hands on a clock face</h1>
+      <form name="angle" action = "result" onsubmit="return validateForm()" method = "POST">
+         <p>Hours <input type = "text" name = "hour" /></p>
+         <p>Minute <input type = "text" name = "minute" /></p>
+         <p><input type = "submit" value = "submit" /></p> 
+      </form>
+   </body>
+</html>
