@@ -1,0 +1,5 @@
+Things to be done
+
+1) Do more testing of the code.
+2) Add code to store the output in BigQuery and test it.
+3) Work on adding more details to the deployment plan, as it is a first draft.
