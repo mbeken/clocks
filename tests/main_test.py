@@ -1,6 +1,6 @@
 import unittest
 
-from main import app, return_angle
+from main import app, return_angle, check_valid_time
 
 class TestClocks(unittest.TestCase):
 
@@ -20,6 +20,15 @@ class TestClocks(unittest.TestCase):
 
         self.assertEqual(response['response'], expected_response['response'])
         self.assertEqual(exception_response['response'], expected_exception_response['response'])
+
+    def test_check_valid_time(self):
+        """Test case for check_valid_time function"""
+        valid_response = check_valid_time("04:00")
+        invalid_response = check_valid_time("24:00")
+
+        self.assertTrue(valid_response)
+        self.assertFalse(invalid_response)
+
 
 if __name__ == "__main__":
     unittest.main()
