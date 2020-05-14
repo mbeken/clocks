@@ -4,7 +4,8 @@ steps:
   entrypoint: /bin/sh
   args:
   - -c
-  - 'pip install flask && pip install pytest && python -m pytest'
+  - 'pip install --upgrade google-api-python-client && pip install google-cloud-bigquery && pip install flask && pip install pytest && python -m pytest'
+
 - name: "gcr.io/cloud-builders/gcloud"
   args: ["app", "deploy"]
 timeout: "1600s"

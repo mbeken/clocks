@@ -15,6 +15,6 @@ def test_result_data_success():
     response = main_app.test_client().post('/result', data=data)
     assert '90.0' in str(response.data)
 
-
+ 
 
 
