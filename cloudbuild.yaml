@@ -1,0 +1,30 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'gcr.io/ind-coe/start-image', '.' ]
+images:
+- 'gcr.io/ind-coe/start-image'
+
+
+# Push the image to Container Registry
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/ind-coe/start-image']
+images:
+- 'gcr.io/ind-coe/start-image'
+  
+steps:
+# Deploy an image from Container Registry to Cloud Run
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+  - 'run'
+  - 'deploy'
+  - 'servicename'
+  - '--image'
+  - 'gcr.io/ind-coe/start-image'
+  - '--region'
+  - 'us-central1'
+  - '--platform'
+  - 'managed'
+  - '--allow-unauthenticated'
+images:
+- 'gcr.io/ind-coe/start-image'
