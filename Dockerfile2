@@ -1,16 +1,18 @@
-FROM alpine:latest
-
-RUN apk add --no-cache python3-dev \
-    && pip3 install --upgrade pip
-
-WORKDIR /app
+FROM python:3-alpine
+ 
+# RUN apt-get update -y
+# RUN apt-get install -y python-pip
+ 
 COPY . /app
-
-RUN pip3 --no-cache-dir install -r requirements.txt
-
-RUN pylint Clock_Inp_BQ_Table.py
-
-EXPOSE 5000
-
-ENTRYPOINT ["python3"]
-CMD ["Clock_Inp_BQ_Table.py"]
+ 
+# Create and change to the app directory.
+WORKDIR /app
+ 
+RUN pip3 install Flask
+ 
+# Service must listen to $PORT environment variable.
+# This default value facilitates local development.
+ENV PORT 8080
+ 
+# Run the web service on container startup.
+CMD [ "python", "/home/mangeshsoni82/clock/docker/app.py" ]
