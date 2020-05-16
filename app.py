@@ -1,18 +1,16 @@
-
-
-import os
-
-from flask import Flask
+from flask import Flask, request
 
 app = Flask(__name__)
 
-@app.route('/')
-def hello_world():
-    target = os.environ.get('TARGET', 'World')
-    print("hello")
-    return 'Hello {}!\n'.format(target)
 
-if __name__ == "__main__":
-    app.run(debug=True,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
+@app.route('/', methods=['GET'])
+def hello():
+    """Return a friendly HTTP greeting."""
+    who = request.args.get('who', 'World')
+    return f'Hello {who}!\n'
 
-    
+
+if __name__ == '__main__':
+    # Used when running locally only. When deploying to Cloud Run,
+    # a webserver process such as Gunicorn will serve the app.
+    app.run(host='localhost', port=8080, debug=True)
