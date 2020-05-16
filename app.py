@@ -18,7 +18,7 @@ def home():
   </title>
  </head>
  <body>
-  <p>Hello Google Cloud Run 2 World!</p>
+  <p>Hello Google Cloud Run 232 World!</p>
   <a href="https://cloud.google.com/run/" target="_blank">Google Cloud Run Website</a>
  </body>
 </html>
