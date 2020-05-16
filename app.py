@@ -1,16 +1,29 @@
-from flask import Flask, request
-
+import os
+import logging
+ 
+from flask import Flask
+ 
+# Change the format of messages logged to Stackdriver
+logging.basicConfig(format='%(message)s', level=logging.INFO)
+ 
 app = Flask(__name__)
-
-
-@app.route('/', methods=['GET'])
-def hello():
-    """Return a friendly HTTP greeting."""
-    who = request.args.get('who', 'World')
-    return f'Hello {who}!\n'
-
-
+ 
+@app.route('/')
+def home():
+	html = """
+<html>
+ <head>
+  <title>
+   Google Cloud Run - Sample Python Flask Example
+  </title>
+ </head>
+ <body>
+  <p>Hello Google Cloud Run World!</p>
+  <a href="https://cloud.google.com/run/" target="_blank">Google Cloud Run Website</a>
+ </body>
+</html>
+"""
+	return html
+ 
 if __name__ == '__main__':
-    # Used when running locally only. When deploying to Cloud Run,
-    # a webserver process such as Gunicorn will serve the app.
-    app.run(host='localhost', port=8080, debug=True)
+	app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
