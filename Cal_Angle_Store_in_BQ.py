@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 "Adding Logger"
-handler = logging.FileHandler('/home/mangesh_soni/clokc/GetAngleFromClock' + str(datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')) + '.log', mode='w')
+handler = logging.FileHandler('/home/mangeshsoni82/clock/StrAnleInBQ' + str(datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')) + '.log', mode='w')
 handler.setLevel(logging.INFO)
 
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s')
@@ -33,17 +33,18 @@ output_handler.setFormatter(formatter)
 
 logger.addHandler(output_handler)
 
-key_path = '/home/mangesh_soni/clokc/login.json'
-credentials = service_account.Credentials.from_service_account_file(
-    key_path,
-    scopes=["https://www.googleapis.com/auth/cloud-platform"],)
+#:wq!
+key_path = '/google/devshell/bashrc.google.d/setup_service_account_authentication.sh'
+#credentials = service_account.Credentials.from_service_account_file(
+#    key_path,
+#    scopes=["https://www.googleapis.com/auth/cloud-platform"],)
 
 #credentials = google.auth.default(scopes=["https://www.googleapis.com/auth/cloud-platform"])
 
-BQ_CLIENT = bigquery.Client(credentials=credentials, project="shc-enterprise-data-lake-dev")
+#BQ_CLIENT = bigquery.Client(credentials=credentials, project="shc-enterprise-data-lake-dev")
 
 
-#BQ_CLIENT = bigquery.Client()
+BQ_CLIENT = bigquery.Client()
 
 
 def bigquery_input(): 
@@ -52,7 +53,7 @@ def bigquery_input():
 
     Query="""
               Select Hour, Minute, ANgle 
-              from `shc-enterprise-data-lake-dev.audit_log.clock`
+              from `ind-coe.mangesh.clock`
     """
 
     query_job = BQ_CLIENT.query(
@@ -73,7 +74,7 @@ def bigquery_update_Angle(Hour, Minute, Angle):
     logger.info("Updating Angle in Clock Table for Hour and Minute")
 
     Query="""
-              Update `shc-enterprise-data-lake-dev.audit_log.clock` 
+              Update `ind-coe.mangesh.clock`
               set ANgle= %s
               where Hour = %s and Minute =%s 
     """ %(Angle, Hour, Minute)
@@ -83,7 +84,7 @@ def bigquery_update_Angle(Hour, Minute, Angle):
         #location="US",
     )
 
-    Query="Select * From  `shc-enterprise-data-lake-dev.audit_log.clock` " 
+    Query="Select * From  `ind-coe.mangesh..clock` " 
 
     query_job = BQ_CLIENT.query(
         Query,
@@ -162,5 +163,6 @@ if __name__ == '__main__':
     #trigger_function(args.hour_hand,args.minute_hand )
     bigquery_input()
     
+
 
 
