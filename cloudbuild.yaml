@@ -10,7 +10,7 @@
    args:
    - 'run'
    - 'deploy'
-   - 'msoni_clock'
+   - 'msoniclock'
    - '--image'
    - 'gcr.io/ind-coe/msoni-clock:$COMMIT_SHA'
    - '--region'
