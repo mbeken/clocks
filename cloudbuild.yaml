@@ -4,13 +4,12 @@ steps:
 images:
 - 'gcr.io/$PROJECT_ID/helloworld-python'
 
-
 # Push the image to Container Registry
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/$PROJECT_ID/helloworld-python']
 images:
-- 'gcr.io/$PROJECT_ID/helloworld-python'
+        - 'gcr.io/$PROJECT_ID/helloworld-python'
   
 steps:
 # Deploy an image from Container Registry to Cloud Run
@@ -18,13 +17,14 @@ steps:
   args:
   - 'run'
   - 'deploy'
-  - 'servicename'
+  - 'helloworld-python'
   - '--image'
   - 'gcr.io/$PROJECT_ID/helloworld-python'
   - '--region'
-  - 'europe-west1'
+  - 'eurpoe-west1'
   - '--platform'
   - 'managed'
   - '--allow-unauthenticated'
 images:
 - 'gcr.io/$PROJECT_ID/helloworld-python'
+
