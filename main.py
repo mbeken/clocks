@@ -1,90 +1,51 @@
-import argparse
-import logging
-import time, sys, os, subprocess
-from datetime import date
-import datetime
+from flask import Flask, request, render_template
+
+APP = Flask(__name__ ,template_folder='./template')
 
 
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
+def clock_angle(hrs, mins):
+    """
+    Funciton to create angle betweem hands of clock
+    Args:
+        hrs: value of hours between 1 to 12
+        mins : value of mins between 0 to 59
+    """
+    degree_per_min = 6
+    degree_per_hour = 30
+    degree_intern = 0.5
 
-"Adding Logger"
-handler = logging.FileHandler('/home/mangeshsoni82/clock/GetAngleFromClock' + str(datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')) + '.log', mode='w')
-handler.setLevel(logging.INFO)
+    if hrs == 12:
+        hrs = 0
 
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s')
-handler.setFormatter(formatter)
-
-logger.addHandler(handler)
-
-output_handler = logging.StreamHandler(sys.stdout)
-output_handler.setLevel(logging.DEBUG)
-formatter = logging.Formatter('%(asctime)s - [%(filename)s:%(lineno)d] - %(message)s')
-output_handler.setFormatter(formatter)
-
-logger.addHandler(output_handler)
-
-
-
-# Function to Calculate angle b/w  
-# hour hand and minute hand  
-def calcAngle(h,m): 
-          
-        # validate the input 
-        if (h < 0 or m < 0 or h > 12 or m > 60): 
-            print('Wrong input') 
-          
-        if (h == 12): 
-            h = 0
-        if (m == 60): 
-            m = 0
-          
-        # Calculate the angles moved by  
-        # hour and minute hands with  
-        # reference to 12:00 
-        hour_angle = 0.5 * (h * 60 + m) 
-        minute_angle = 6 * m 
-          
-        # Find the difference between two angles 
-        angle = abs(hour_angle - minute_angle) 
-          
-        # Return the smaller angle of two  
-        # possible angles 
-        angle = min(360 - angle, angle) 
-          
-        return angle
+    angle_between = abs(hrs*degree_per_hour - mins*degree_per_min + mins*degree_intern)
+    return "Angle1 -> " + str(angle_between)
+#        TODO: implement function for data inserting into SQL
+#        insert_in_db()
 
 
-def trigger_function(hour_minute):
-    """h = input("ebter the hour clock")  #9
-    m = input("enter the minute clock") #60"""
-    h,m=hour_minute.split(":")
-    hour_hand,minute_hand= int(h), int(m)
-    
-    try:
-        logger.info("Function to Calculate angle b/w  hour hand is %s and minute hand is %s " %(hour_hand, minute_hand))
-        Angle = calcAngle(int(hour_hand) , int(minute_hand))
-        print('Angle ', calcAngle(int(hour_hand) , int(minute_hand))) 
-        logger.info("Angle is %s b/w  hour hand is %s and minute hand is %s " %(Angle , hour_hand, minute_hand))
-    except Exception as e:
-        logger.info("Error in calculating the Angle \n" + str(e) + "\n" )
-    
-    return Angle
-                
-    
-    logger.info("Calculation completed : {}".format(datetime.datetime.now()))
-    
-    
-    
+@APP.route('/')
+def landing_page():
+    """
+    Function to call base HTML
+    """
+    return render_template("index.html")
+
+
+@APP.route('/', methods=["GET", "POST"])
+def index():
+    """
+    Function to call clock_angle
+    """
+    str1 = "Nothing to show!!!"
+    if request.method == 'POST':
+        hrs = int(request.form['hrs'])
+        mins = int(request.form['mins'])
+        if (0 <= int(hrs) <= 12 and 0 <= int(mins) <= 59):
+            str1 = clock_angle(hrs, mins)
+        else:
+            str1 = "Invalid Data"
+
+    return render_template("index.html", data=str1)
+
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(
-           description=__doc__,
-           formatter_class=argparse.RawDescriptionHelpFormatter)
-
-    parser.add_argument(
-           'hour_hand', help='',default=12)
-    args = parser.parse_args()
-    trigger_function(args.hour_minute )
-    
-
-
+     APP.run(host='0.0.0.0', debug=True)
