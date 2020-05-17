@@ -1,3 +1,31 @@
+from google.cloud import bigquery
+
+from google.cloud import storage
+
+
+#requirements.txt
+#oogle-cloud-bigquery>=1.3.0
+#oogle-cloud-storage>=1.28.0
+#andas>=1.0.3
+
+
+def export_to_gcs(hrs,mins,angle):
+    # BQ Query to get add to cart sessions
+    
+    bq_client = bigquery.Client(project="ind-coe")
+
+    Query=" Insert into mangesh.clock select cast(%s as int64), cast(%s as int64) , cast(%s as Numeric)" %(hrs,mins,angle)
+    query_job = bq_client.query(Query)
+
+    Query="Select Hour, Minute, Angle from mangesh.clock"
+    query_job = bq_client.query(Query) # API request
+
+    rows_df = query_job.result().to_dataframe() # Waits for query to finish
+    storage_client = storage.Client()
+    bucket = storage_client.get_bucket('ind-coe-mangesh')
+    blob = bucket.blob('Add_to_Cart.csv')
+    blob.upload_from_string(rows_df.to_csv(sep=';',index=False,encoding='utf-8'),content_type='application/octet-stream')
+
 
 def clock_angle(request):
     """
@@ -33,4 +61,7 @@ def clock_angle(request):
 
     else:
         ans_str = "Invalid Input, cannot compute, Try Again"
+    export_to_gcs(hrs,mins,angle)
+
     return ans_str
+
