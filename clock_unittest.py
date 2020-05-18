@@ -40,15 +40,4 @@ def test_3():
     except:
         None
     assert angle1 == "Enter correct integer value(Hour=1 to 12, Minute=0 to 60)"
-def test_4():
-    """
-        Testing at empty string - Angle = "Enter correct integer value(Hour=1 to 12, Minute=0 to 60)"
-        """
-    hour = ""
-    minute = ""
-    angle1 = func1(hour,minute)
-    try:
-        angle1 = float(angle1.split(':')[1])
-    except:
-        None
-    assert angle1 == "Enter correct integer value(Hour=1 to 12, Minute=0 to 60)"
+
