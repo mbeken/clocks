@@ -1,0 +1,65 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=yes">
+    <meta name="description" content="Schlumberger Interview">
+    <meta name="apple-itunes-app" content="app-id=434633927">
+    
+    <title data-localize="login_page_title">Schlumberger Interview</title>
+
+    
+    <link type="text/css" rel="stylesheet" href="https://sso.online.tableau.com/public/css/grid.css?4123843b707f544de01e3a0c31b58cc1">
+    <link type="text/css" rel="stylesheet" href="https://sso.online.tableau.com/public/css/style.css?4123843b707f544de01e3a0c31b58cc1">
+
+
+  </head>
+
+  <body>
+    <div id="prelogin-page">
+    <!-- Login Form -->
+      <div class="tb-saml-login">
+        <form id="prelogin-form" action="/user" method="post" novalidate="" data-authentication-type="DEFAULT">
+          <div id="default-title" class="tb-padded tb-login-title" data-localize="sign_in_to_tableau_online">Clock Angle Calculation</div>
+          <div id="error-message" class="error-text tb-padded" style="display: none;" role="alert"></div>
+
+            <div class="tb-padded tb-login-text-box">
+              <div id="emailLabel" class="tb-login-field-labels" data-localize="email">Hour</div>
+              <div class="tb-text-box-holder" id="email-text-box-container">
+                <div class="tb-text-box-accessible-border hover" id="email-border">
+                  <input id="hour" name="hour" type="hour" required="required" maxlength="80" autofocus="" aria-labelledby="emailLabel" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="tb-text-box-input tb-enable-selection">
+		</div>
+                <div class="tb-clear-button-container" id="clear-email-container">
+                  <div class="tb-clear-button" id="clear-email"></div>
+                </div>
+              </div>
+            </div>
+	      <div class="tb-padded tb-login-text-box">
+              <div id="emailLabel" class="tb-login-field-labels" data-localize="email">Minute</div>
+              <div class="tb-text-box-holder" id="email-text-box-container">
+                <div class="tb-text-box-accessible-border hover" id="email-border">
+                  <input id="minute" name="minute" type="minute" required="required" maxlength="80" autofocus="" aria-labelledby="emailLabel" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="tb-text-box-input tb-enable-selection">
+		</div>
+                <div class="tb-clear-button-container" id="clear-email-container">
+                  <div class="tb-clear-button" id="clear-email"></div>
+                </div>
+              </div>
+            </div>
+            <button id="login-submit" class="tb-login-button tb-button-init" tabindex="0">
+            <span id="not-busy">
+              <span data-localize="sign_in">Find Angle</span>
+              <span class="tb-icon-sign-in-arrow"></span>
+            </span>
+            <span id="busy" style="display: none;">
+              <span data-localize="signing_in">Finding Angle</span>
+              <span class="spinner-icon"></span>
+            </span>
+          </button><div class="tb-padded"></div>
+	  
+<body>
+	  
+	  <div class="tb-padded tb-login-text-box">
+              
+          {% if message != "e" %}
+		 <div id="emailLabel" class="tb-login-field-labels" data-localize="email"><strong><center>{{message}}</center></strong></div>
+	  {% endif %} 
+	  </div>
+</form></div></div></body></html>
