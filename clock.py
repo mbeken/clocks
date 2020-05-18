@@ -21,5 +21,5 @@ class Clock_Angle:
         if (0 <= self.hour <= 12 and 0 <= self.minutes <= 59):
             result = self.calAngle()
         else:
-            result = "Incorrect hour and minutes value"
+            result = "Please  change the values: Incorrect hour and minutes value"
         return result        
