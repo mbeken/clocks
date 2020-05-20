@@ -1,0 +1,13 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Other things
+db.sqlite3
+.idea
+.project
+.pydevproject
+.pytest_cache
+**/.Python
+**/venv/
