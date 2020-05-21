@@ -34,4 +34,4 @@ def clock_hand_angle(request, time, *args, **kwargs):
         status = 500
         print(e.__str__())
         response["data"] = {"message": "Internal Server Error"}
-    return HttpResponse(json.dumps(response), status=status)
+    return HttpResponse(json.dumps(response), status=status, content_type="application/json")
