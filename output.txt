@@ -1,0 +1,2 @@
+The time is 12:40 
+Angle is 140.0 degree 
