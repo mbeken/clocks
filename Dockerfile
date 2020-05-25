@@ -12,6 +12,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /src/
 
-EXPOSE 8080
+EXPOSE 80
 
-CMD ["uwsgi", "--http", ":8080", "--ini", "./uwsgi/uwsgi.ini"]
+ENTRYPOINT ["python"]
+
+CMD ["manage.py", "runserver", "0.0.0.0:8000"]

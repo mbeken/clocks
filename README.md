@@ -1,30 +1,49 @@
 # Clock Exercise
 
 ---------------------------------------
-## Product Backlog Item (Sprint Story)
-
-Here is the story that is in the backlog. 
-
-As with all stories, the team may have been optimistic with how much can be done in the time permitted. It's ok to meet some of the acceptance criteria by documenting what you would do in the next sprint! Prioritize your time and make sure you have some technical content to deliver.
-
 ### Description:-
+Clock service will calculate the angle between the hands on a clock face. For example input 03:00 would yield to 90 degrees.<br>
+This service will take time value as input and return an angle value in json format, so that can be used in downstream processing.
 
-As a team<br>
-We need a serivce that we can send a time value to and have it return or store an angle value<br>
-So that we can use it in downstream processing
+## Run Locally
 
-### Detail:-
+Below steps required to run this service locally.
 
-We need to calculate the angle between the hands on a clock face. For example input 03:00 would yield 90 degrees.
+1. Clone git repo.
 
-### Acceptance Criteria:-
+    ```
+    https://github.com/gajanankathar/clocks.git
+    ```
 
-1) Code to perform the calculation
-2) How will you deploy this solution (in code or as a todo list if time is limited). i.e. how and where will this run?
-3) How will you manage any infrastructure needed?
-4) Delivered as a feature branch in the repo fork
-5) Bonus points for a working deployed solution in GCP that you can demo at the "sprint review" (ie interview)
-6) Any DevOps/Cicd components that would support this feature in a production setting
+2. Setup docker, build & run clocks app docker image.
+
+   ```
+    docker-compose run --service-ports web
+   ```
+
+3. Visit the application at [http://localhost/services/clocks/angle/12:90](http://localhost/services/clocks/angle/12:90).
+
+
+## Deploying
+
+List of steps to deploy application in GCP flexible app engine service as:
+
+1. Use the [Google Developers Console](https://console.developer.google.com)  to create a project/app id. (App id and project id are identical)
+
+2. Open google cloud SDK & setup the gcloud tool, if you haven't already.
+
+   ```
+   gcloud init
+   ```
+
+3. Use gcloud to deploy your app.
+
+   ```
+   gcloud app deploy
+   ```
+
+4. Access this application using app engine provided public ip/domain & service endpoint [https://clocks-app-277815.df.r.appspot.com/services/clocks/angle/10:34](https://clocks-app-277815.df.r.appspot.com/services/clocks/angle/10:34)
+
 
 
 
