@@ -17,7 +17,7 @@ def clock_hand_angle(request, time, *args, **kwargs):
         t_lst = time.split(":")
         if all([len(t_lst) == 2, t_lst[0].isdigit() and t_lst[1].isdigit()]):
             hrs = 0 if int(t_lst[0]) == 12 else int(t_lst[0])
-            mins = 0 if int(t_lst[1]) == 60 else int(t_lst[1])
+            hrs, mins = (1, 0) if int(t_lst[1]) == 60 else (hrs, int(t_lst[1]))
             if 0 <= hrs <= 12 and 0 <= mins <= 60:
                 h_angle = HOUR_HAND_ANGLE * (hrs * 60 + mins)
                 m_angle = MINUTE_HAND_ANGLE * mins
