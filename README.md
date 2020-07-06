@@ -10,7 +10,7 @@ If you need clarification, or would like to request additional information, peas
 
 ## Scenario
 
-You have just joined a DevOps team. This team lives by DevOps principles and you want to let them know you mean business! This particular team is developing a product that is deployed in a Google Cloud Project.
+You have just joined a DevOps team. This team lives by DevOps principles and you want to let them know you mean business! This particular team is developing a product that can be deployed in a Google Cloud Project or Azure Project.
 
 This sprint, the team has been asked to work on a new feature that depends on being able to calculate the angle between the hands on a clock face. They’ve asked you to write some code to help out with that. This is an IOT project, and they have sensors emitting times at a pretty low frequency (about 10 a minute), and for some reason they need to be processed and stored as angles.
 
@@ -24,7 +24,7 @@ Your solution should offer the rest of the team a way to submit a time and recei
 
 **Fork this repo, then get to work.** Remember that this is a DevOps team, so make sure your repo reflects that. Spend however much time you feel is reasonable. It doesn’t matter if the project is ‘done’, nothing ever is. **When you’re ready push your changes back to Github and put in a pull request back to the base repo.**
 
-Be sure to add in instructions for how to deploy your solution, and document things in a way that the rest of the team can pick this up and run with it. Remember you have all the tools in the GCP arsenal at your disposal.
+Be sure to add in instructions for how to deploy your solution, and document things in a way that the rest of the team can pick this up and run with it. Remember you have all the tools in the GCP or Azure arsenal at your disposal.
 
 We are looking for you to demonstrate your abilities in software practices and DevOps, including reusability, portability, reliability, ease of maintenance etc.
 
@@ -54,5 +54,5 @@ We need to calculate the angle between the hands on a clock face. For example in
 1) How will you deploy this solution (in code or as a todo list if time is limited). i.e. how and where will this run?
 1) How will you manage any infrastructure needed?
 1) Delivered as a feature branch in the repo fork
-1) Bonus points for a working deployed solution in GCP that you can demo at the "sprint review" (ie interview)
+1) Bonus points for a working deployed solution in GCP or Azure that you can demo at the "sprint review" (ie interview)
 1) Any DevOps/Cicd components that would support this feature in a production setting
