@@ -1,0 +1,7 @@
+
+
+1. Deployment:
+
+A) We can use Compute Engine Vm or App engine.
+B) We can use Pub/sub to receive sensor data, calculate the angle between hands and save the result on Google cloud storage.
+
