@@ -1,6 +1,5 @@
 import argparse
 import datetime
-import logging
 
 class ClockAngleCalculator:
 
@@ -8,8 +7,6 @@ class ClockAngleCalculator:
         try:
             hour = time.hour
             minutes = time.minute
-            logging.info("logging active")
-            logging.debug("debug")
             print("Hours in time provided " + str(hour))
             print("Minutes in time provided " + str(minutes))
             ans = abs((hour * 30 + minutes * 0.5) - (minutes * 6))
@@ -21,12 +18,11 @@ class ClockAngleCalculator:
         time_format = "%H:%M:%S"
         try:
             time_input = datetime.datetime.strptime(input_time, time_format)
+            print (type(time_input))
             print("Input Validation successful, Extracted time " + str(input_time))
             return time_input
         except Exception as e:
             raise Exception("Input validation failed, Please use specified format " + str(time_format) + " Exception raised " + str(e))
-            # raise Exception(str(e))
-
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
