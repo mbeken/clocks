@@ -1,8 +1,8 @@
 import argparse
 import datetime
 
-class ClockAngleCalculator:
 
+class ClockAngleCalculator:
     def clock_angle(self, time):
         try:
             hour = time.hour
@@ -23,6 +23,7 @@ class ClockAngleCalculator:
             return time_input
         except Exception as e:
             raise Exception("Input validation failed, Please use specified format " + str(time_format) + " Exception raised " + str(e))
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

@@ -4,6 +4,7 @@ import pytest
 import datetime
 from ClockAngleCalculator import ClockAngleCalculator
 
+
 class TestClockAngleCalculator(unittest.TestCase):
 
     def setUp(self):
@@ -16,6 +17,7 @@ class TestClockAngleCalculator(unittest.TestCase):
     def test_clock_angle(self):
 
         self.assertEqual(self.obj.clock_angle(time=datetime.datetime.strptime("03:00:00", "%H:%M:%S")), 90.0)
+
 
 suite = unittest.TestLoader().loadTestsFromTestCase(TestClockAngleCalculator)
 unittest.TextTestRunner(verbosity=2).run(suite)
