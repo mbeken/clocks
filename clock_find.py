@@ -1,7 +1,7 @@
 from flask import Flask,jsonify
 app = Flask(__name__)
 
-@app.route("/clockangle/<string:data>", methods=['GET'])
+@app.route("/clockangle/<string:data>")
 def calc_angle(data):
     '''
     A function to calculate angle between hour and minute hand
@@ -32,4 +32,4 @@ def calc_angle(data):
     return "Angle for time is {} degree.".format(angle)
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1', port=8000, debug=True)
+    app.run()
