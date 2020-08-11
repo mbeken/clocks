@@ -1,0 +1,10 @@
+For deployment purpose we would need to deploy DAG and scripts to Google cloud Bucket through Jenkins and need to Run the DAG from Google Airflow.
+
+1. Script clock_angle_input.sh will take in 2 arguments and save it to a file.
+
+2. Script clock_angle_calc.sh will calculate the angle.
+
+3. Python script clock_angle_calc_dag.py, is a DAG that would run on GCP airflow and triger the above 2 scripts and perform calculation.
+Basically it is a wrapper script.
+
+4. We can Schedule the same in Control M scheduler which will trigger the DAG when required.
