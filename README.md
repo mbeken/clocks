@@ -4,7 +4,7 @@ We are interested in running code of course, but even more in your development p
 
 **Fork this repo, then get to work.** Remember that this is a DevOps team, so make sure your repo reflects that. Spend however much time you feel is reasonable. It doesn’t matter if the project is ‘done’, nothing ever is. **When you’re ready push your changes back to Github and put in a pull request back to the base repo.**
 
-This exercise is an opportunity for you to demonstrate your skills without the stress of an interview. If you start to run out of time, it’s ok to leave an imaginary team member a TODO list that details all the things you didn’t quite have time to do in order for your solution to go to prod.
+This exercise is an opportunity for you to demonstrate your skills without the stress of an interview. If you start to run out of time, it’s ok to leave an imaginary team member a detailed TODO list that specifies all the things you didn’t quite have time to do in order for your solution to go to prod.
 
 If you need clarification, or would like to request additional information, pease reach out to the interviewer by email.
 
@@ -34,7 +34,7 @@ Think about how this will actually be deployed and maintained in the future as y
 
 ## Product Backlog Item (Sprint Story)
 
-Here is the story that is in the backlog. 
+Here is the story that is in the backlog.
 
 As with all stories, the team may have been optimistic with how much can be done in the time permitted. It's ok to meet some of the acceptance criteria by documenting what you would do in the next sprint! Prioritize your time and make sure you have some technical content to deliver.
 
