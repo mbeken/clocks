@@ -1,1 +1,13 @@
-Deployment strategy 
+Steps for deployment :
+
+*Need GCP Account with required Permissions for deplyoment process.
+
+1.Select Pubsub service API on GCP console
+2.create Topic
+3.Insert the necessary input details.
+4.Search Cloud Function API on console
+5.Name the Cloud Function as "AngleCalculator"
+6.Memory Allocation	
+7.Cloud Pubsub will be used as trigger. 
+	
+8. We will publish our output to an output topic that woulb subscribed by the user as per their requirement.
