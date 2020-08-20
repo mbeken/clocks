@@ -1,0 +1,20 @@
+Deployment Steps : (Project is a maven project)
+-----------------------------------------------
+
+(The below steps can be configured in git and jenkins for deployment purpose.)
+
+1) Build the jar of compiled scala code and tar bundle of the project using maven :
+
+mvn clean package
+
+2) Copy the tar.gz bundle of the project to the cluster for execution
+
+3) Untar the tar.gz file to a location on cluster where the codebase is to be placed.
+
+tar -zxvf clockExercise-1.0-SNAPSHOT-bundle.tar.gz
+
+4) The folder has scala jar file in libs directory and properties file in etc directory.
+
+5) Run the scala jar using below command on cluster mode :
+
+spark2-submit --conf spark.dynamicAllocation.enabled=false --master yarn --deploy-mode cluster --num-executors 2 --executor-memory 3G --executor-cores 4 --files clock_exercise.properties --class clockExercise clockExercise-0.0.1-SNAPSHOT-shaded.jar clock_exercise.properties
