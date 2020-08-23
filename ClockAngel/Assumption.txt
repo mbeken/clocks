@@ -1,0 +1,5 @@
+
+            Assumption - 
+            1)Azure IoT Hub already configured and it is receiving time from time device.
+            2)Add IOT Hub trigger connction string in  local.settings.json file.
+            3)Iot hub sending time detail in proper format. 
