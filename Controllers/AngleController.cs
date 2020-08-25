@@ -31,7 +31,7 @@ namespace SLB_Clock.Controllers
         }
 
         /// <summary>
-        /// Convert Time to Angle
+        /// Convert Time to Angle Demo
         /// </summary>
         /// <param name="time"></param>
         /// <returns>Object of angle and message</returns>
