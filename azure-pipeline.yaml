@@ -1,0 +1,122 @@
+resources:
+- repo: self
+
+queue:
+  name: Hosted VS2019
+  demands: Cmd
+
+#Variable declartion for test -- currently unit tests are notimplemented, once implemented that project nam can be added over, 
+#also can excludes the projects which is not required to cover 
+#variables:
+#  testPath1: 
+#  testPathExclude: 
+
+#Your build pipeline references an undefined variable named ‘Parameters.solution’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+steps:
+- task: NuGetToolInstaller@0
+  displayName: 'Use NuGet 5.3.1'
+  inputs:
+    versionSpec: 5.3.1
+
+#to restore the nuget packages
+- task: NuGetCommand@2
+  displayName: 'NuGet restore'
+  inputs:
+    command: 'restore'
+    restoreSolution: '**\ClockAngleCalculator.SF.sln'
+
+
+#to build the solution
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet build sln'
+  inputs:
+    projects: '**\ClockAngleCalculator.SF.sln'
+
+
+#to build the Service fabric project
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet build sfproj'
+  inputs:
+    projects: '**\*.sfproj'
+    arguments: '/t:Package /p:PackageLocation=$(build.artifactstagingdirectory)\applicationpackage'
+
+
+#For Unit test and code coverage, as of now no unit test cases added for this solution once added file path can be added over
+#- task: PowerShell@2
+#  displayName: 'Unit Testing and Code Coverage Generation'
+#  inputs:
+#    targetType: filePath
+#    filePath: 
+#    workingDirectory: 
+
+
+# Condition for failed test cases, if test case/s faied task will be failed.
+#- task: PublishTestResults@2
+#  inputs:
+#    testRunner: VSTest
+#    testResultsFiles: '**/*.trx'
+#    failTaskOnFailedTests: true
+
+
+
+# publish code coverage result on Azure
+#- task: PublishCodeCoverageResults@1
+#  inputs:
+#    summaryFileLocation: 
+#    reportDirectory: 
+#    codecoverageTool: 
+
+
+#Code Coverage condition, if coverageThreshold:  is lessthen mentioned threshold it will not pass the quality
+#- task: mspremier.BuildQualityChecks.QualityChecks-task.BuildQualityChecks@5
+#  displayName: 'Check Code Coverage Quality'
+#  inputs:
+#    checkCoverage: true
+#    coverageFailOption: fixed
+#    coverageType: lines
+#    coverageThreshold: 90
+#  continueOnError: false
+
+
+#Copy pdb files to pdbs location
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)\pdbs'
+  inputs:
+    SourceFolder: '$(build.artifactstagingdirectory)\applicationpackage'
+    Contents: '**\*.pdb'
+    TargetFolder: '$(build.artifactstagingdirectory)\pdbs'
+
+
+# Delete the files from source location once copied.
+- task: DeleteFiles@1
+  displayName: 'Delete files from $(build.artifactstagingdirectory)\applicationpackage'
+  inputs:
+    SourceFolder: '$(build.artifactstagingdirectory)\applicationpackage'
+    Contents: '**\*.pdb'
+
+
+#Set Drop location Service Fabric Manifests
+- task: ServiceFabricUpdateManifests@2
+  displayName: 'Update Service Fabric Manifests (Manifest versions)'
+  inputs:
+    applicationPackagePath: '$(build.artifactstagingdirectory)\applicationpackage'
+    versionSuffix: '.$(build.buildnumber)'
+    updateOnlyChanged: false
+    pkgArtifactName: drop
+
+
+#Copy Publish profiles and Application parameters to Target Location.
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)\projectartifacts'
+  inputs:
+    SourceFolder: '$(system.defaultworkingdirectory)'
+    Contents: |
+      **\PublishProfiles\*.xml
+      **\ApplicationParameters\*.xml
+    TargetFolder: '$(build.artifactstagingdirectory)\projectartifacts'
+
+# Set Publish location/ Drop Location
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'

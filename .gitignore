@@ -1,0 +1,19 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/ClockAngleCalculator.SF/DesignTimeBuild/.dtbcache.v2
+/.vs/ClockAngleCalculator.SF/v16/TestStore/0/000.testlog
+/.vs/ClockAngleCalculator.SF/v16/TestStore/0/testlog.manifest
+/.vs/ClockAngleCalculator.SF/v16/.suo
+/.vs/clocks/v16/.suo
+/.vs
+/ClockAngleCalculator.SF/obj/x64/Debug
+/ClockAngleCalculator.SF/pkg/Debug
+/packages/Microsoft.VisualStudio.Azure.Fabric.MSBuild.1.6.10
+/Schlumberger.Calculators.ClockAngles.Dal/bin/Debug/netcoreapp3.1
+/Schlumberger.Calculators.ClockAngles.Bal/obj
+/Schlumberger.Calculators.ClockAngles.Bal/bin/Debug/netcoreapp3.1
+/Schlumberger.Calculators.ClockAngles.Api/bin/Debug/netcoreapp3.1/win7-x64
+/Schlumberger.Calculators.ClockAngles.Api/obj
+/Schlumberger.Calculators.ClockAngles.Dal/obj
