@@ -1,0 +1,27 @@
+1. Deployable code base
+The code can be run using the command python ClockAngle.py --time
+The user should supply time in the format hour:minute , e.g. 03:00 or 00:00 or 15:02
+
+
+2. Solution deployed to a cloud environment
+The can be deployed in a serverless environment: Lambda (AWS) , AzureFucntions (Azure) , CloudFunctions(GCP).
+
+3. How will you deploy this solution (in code or as a todo list if time is limited). i.e. how and where will this run? Details of CI/CD pieplines etc.
+TO DO:
+  3.1 Create a lambda function and put the code in the editor. Modify the code to get the ‘time’ input as an event from API gateway.
+  3.2 Create an API Gateway, which when requested will trigger the lambda function.
+  3.3 For CI/CD, AWS Code pipeline can be used or Azure pipelines(In case the solution is on Azure and Azure functions are used instead of lambda)
+
+4. How will you manage any infrastructure needed?
+  4.1 Create lambda function
+  4.2 Create API gateway to call the lambda function
+  4.3 No need to manage any infrastructure.
+
+
+5. Delivered as a feature branch in the repo fork
+Branch 'feature_parul' has been created for the same.
+
+6. Any DevOps/Cicd components that would support this feature in a production setting
+  AWS Code pipeline or Azure pipelines
+
+
