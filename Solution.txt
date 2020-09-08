@@ -1,0 +1,32 @@
+1. Deployable code base
+The code can be run using the command:  python ClockAngle.py --time
+The user should supply time in the format hour:minute , e.g. 03:00 or 00:00 or 15:02
+
+
+2. Solution deployed to a cloud environment
+The solution can be deployed on a Virtual Machine(Azure) , EC2 (AWS) or Compute Engine (GCP)
+
+3. How will you deploy this solution (in code or as a todo list if time is limited). i.e. how and where will this run? Details of CI/CD pieplines etc.
+TO DO:
+
+  3.1 A EC2 can be created in the cloud environment.
+  3.2 The machine should have Jenkins installed in the system, so that  CI/CD pipelines can be created.
+  3.3 Create a pipeline in Jenkins which gets triggered whenever there is a merge request on the dev branch from any other branch.
+	  TASK 1 - The Jenkins pipeline should first run the test cases(create a unit test test case file in PyUnit).
+	  TASK 2- The code should be merged in dev branch only when all the test cases are passed.
+	  TASK 3- After the code merge, a bash task in Jenkins should SSH on the EC2 to clone the latest code from the repository.
+	  TASK 4- Trigger the python code using the command: python ClockAngle.py --time <time value>.The time value can be passed a parameter to the Jenkins pipeline.
+
+
+
+4. How will you manage any infrastructure needed?
+  4.1 EC2 machine can be chosen depending on the use case, e.g. for this use case a small machine with limited computing capacity should be fine.
+  4.2 We can STOP the machine when not needed using CloudWatch(in case of AWS).
+  4.3 We can restart it  everyday on a schedule basis using CloudWatch.
+
+
+5. Delivered as a feature branch in the repo fork
+Branch 'feature_parul' has been created for the same.
+
+6. Any DevOps/Cicd components that would support this feature in a production setting
+Jenkins 
