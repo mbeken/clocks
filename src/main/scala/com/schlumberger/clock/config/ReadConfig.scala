@@ -1,7 +1,10 @@
 package com.schlumberger.clock.config
 
-import java.io.InputStream
+import java.io.{FileNotFoundException, InputStream}
 import java.util.Properties
+
+import scala.io.Source
+import scala.reflect.internal.util.NoSourceFile.path
 
 
 /**
@@ -11,12 +14,18 @@ import java.util.Properties
 object ReadConfig {
 
   val prop = new Properties
-  val propFileName = "config.properties"
+  val propFileName = "F:/schlumberg/clocks/src/config/config.properties"
 
-  val inputStream: InputStream = getClass.getClassLoader.getResourceAsStream(propFileName)
-  prop.load(inputStream)
+//  val inputStream: InputStream = getClass.getClassLoader.getResourceAsStream(propFileName)
+//  prop.load(inputStream)
 
   def getConfig(key: String): String = {
-    prop.getProperty(key)
+    import java.io.FileInputStream
+    val properties = new Properties()
+    val in = new FileInputStream("F:/schlumberg/clocks/src/config/config.properties")
+    properties.load(in)
+
+    properties.getProperty(key)
+
   }
 }
